@@ -1,9 +1,12 @@
-function toggleMenu() {
-    const menuOverlay = document.getElementById('menuOverlay');
-    menuOverlay.classList.toggle('active');
-}
+// Smooth scroll to section when a menu item is clicked
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
 
-function toggleTrimester(subjectId) {
-    const subjectList = document.getElementById(subjectId);
-    subjectList.classList.toggle('active');
-}
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+            top: targetSection.offsetTop,
+            behavior: 'smooth'
+        });
+    });
+});

@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,134 +6,114 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Header Styles */
-.header {
-    position: relative;
-    text-align: center;
-}
-
-.header img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-}
-
-.header h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 3em;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-
-/* Description Section */
-.description {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.description h2 {
-    font-size: 2em;
+h2 {
     color: #333;
-    margin-bottom: 10px;
+    text-align: center;
+    padding: 20px;
 }
 
-.description ul {
+p {
+    color: #666;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+/* Navbar */
+nav {
+    background-color: #007acc;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
 }
 
-.description ul li {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 10px;
+nav ul li {
+    display: inline-block;
+    position: relative;
 }
 
-.description ul li strong {
-    color: #3498db;
-}
-
-/* Hamburger Menu */
-.menu-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.menu-icon .bar {
-    width: 100%;
-    height: 3px;
-    background-color: black;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-/* Overlay Menu */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-/* Visible state of menu */
-.menu-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Menu items */
-.menu-items {
-    list-style: none;
-    text-align: center;
-}
-
-.menu-items li {
-    margin: 20px 0;
-}
-
-.menu-items li a {
-    color: white;
+nav ul li a {
     text-decoration: none;
-    font-size: 24px;
+    color: #fff;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s;
 }
 
-/* Close Icon */
-.close-icon {
+nav ul li a:hover {
+    background-color: #005f99;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
+    background-color: #007acc;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    border-radius: 5px;
+    z-index: 1;
 }
 
-/* Transform the bars when the menu opens */
-.menu-icon.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+.dropdown-content li {
+    display: block;
 }
 
-.menu-icon.active .bar:nth-child(2) {
-    opacity: 0;
+.dropdown-content li a {
+    padding: 10px;
+    color: #fff;
 }
 
-.menu-icon.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+/* Smooth Hover Effect */
+nav ul li a:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
+
+/* Section Styling */
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        position: relative;
+    }
+
+    section {
+        margin: 10px;
+    }
+}
+
+/* Keyframe Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
