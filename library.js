@@ -1,37 +1,34 @@
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', (event) => {
 
-// Function to toggle trimester dropdown
-function toggleTrimester(trimesterId) {
-    const trimesterElement = document.getElementById(trimesterId);
-    trimesterElement.classList.toggle('active');
-    
-    // Animate dropdown for subjects
-    if (trimesterElement.classList.contains('active')) {
-        trimesterElement.style.maxHeight = trimesterElement.scrollHeight + 'px';
-    } else {
-        trimesterElement.style.maxHeight = '0';
+    // Function to toggle dropdown visibility
+    function toggleDropdown(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.classList.toggle('show');
     }
-}
 
-// Function to add hover animation for trimester buttons
-const trimesterButtons = document.querySelectorAll('.trimester-btn');
+    // Event listeners for each trimester button
+    document.querySelectorAll('.dropdown button').forEach(button => {
+        button.addEventListener('click', () => {
+            const dropdownId = button.nextElementSibling.id;
+            toggleDropdown(dropdownId);
 
-trimesterButtons.forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-        this.style.backgroundColor = '#6a6cc2'; // Change color on hover
+            // Hide other dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                if (content.id !== dropdownId) {
+                    content.classList.remove('show');
+                }
+            });
+        });
     });
-    btn.addEventListener('mouseleave', function() {
-        this.style.backgroundColor = ''; // Reset color after hover
+
+    // Click outside to close dropdown
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropdown button')) {
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.classList.remove('show');
+            });
+        }
     });
 });
 
-// Toggle menu for hamburger
-function toggleMenu() {
-    const menu = document.getElementById('menuOverlay');
-    menu.classList.toggle('active');
-    
-    if (menu.classList.contains('active')) {
-        menu.style.transform = 'translateY(0)';
-    } else {
-        menu.style.transform = 'translateY(-100%)';
-    }
-}
