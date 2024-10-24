@@ -1,91 +1,97 @@
-/*body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
-    margin: 20px 0;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #444;
 }
 
-.trimester-container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.trimester-btn {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 10px;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.trimester-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.subjects {
-    display: none;
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
-    animation: dropdownAnimation 0.5s ease-in-out;
-}
-
-.subjects.active {
-    display: block;
-}
-
-.subject-btn {
-    display: block;
-    margin: 10px 0;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out;
-}
-
-.subject-btn:hover {
-    transform: scale(1.05);
-}
-
-.subject-background {
+/* Dropdown Styles */
+.dropdown {
     position: relative;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.dropdown button {
+    background-color: #017E89;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+.dropdown button:hover {
+    background-color: #016C77;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #017E89;
+    width: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: 8px;
+    z-index: 1;
     overflow: hidden;
 }
 
-.subject-background img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.subject-background:hover img {
-    opacity: 0.5;
-}
-
-.subject-background span {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 16px;
+.dropdown-content a {
     color: white;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}*/
+    padding: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-@keyframes dropdownAnimation {
+.dropdown-content a:hover {
+    background-color: #016C77;
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.dropdown button::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 18px;
+}
+
+.dropdown.show button::after {
+    content: '\25B2'; /* Up arrow */
+}
+
+/* Add a fade-in animation */
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-10px);
@@ -96,105 +102,20 @@ h1 {
     }
 }
 
-/* Background for the library page */
-body {
-    background-color: #f0f4f8; /* Light blue-gray background */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+/* Modern Touches */
+body, html {
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease;
 }
 
-/* Align trimester section to the center and give it spacing */
-.trimester-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: #ffffff; /* Light white container */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for pop-out effect */
+button:focus, a:focus {
+    outline: none;
 }
 
-/* Trimester button styling */
-.trimester-btn {
-    background-color: #007bff; /* Blue button background */
-    color: white;
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-/* Hover effect for trimester buttons */
-.trimester-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-10px); /* Lift button slightly on hover */
-}
-
-/* Subject dropdown (hidden by default) */
-.subjects {
-    display: none;
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
-    animation: dropdown 0.5s ease-in-out;
-}
-
-/* Subject buttons inside dropdown */
-.subjects li {
-    margin: 10px 0;
-}
-
-.subjects a {
-    background-image: url('subject-background.jpg'); /* Placeholder background image */
-    background-size: cover;
-    color: white;
-    font-size: 1.2rem;
-    padding: 15px 30px;
-    text-decoration: none;
-    display: block;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-/* Subject button hover effect */
-.subjects a:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on hover */
-    transform: scale(1.05); /* Slight scale on hover */
-}
-
-/* Dropdown animation for subjects */
-@keyframes dropdown {
-    0% {
-        opacity: 0;
-        transform: scaleY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scaleY(1);
-    }
-}
-
-/* Responsive behavior for smaller screens */
-@media (max-width: 768px) {
-    .trimester-btn {
-        font-size: 1.2rem;
-        padding: 10px 20px;
-    }
-
-    .subjects a {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
+.container {
+    font-size: 1.1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 50px;
 }
