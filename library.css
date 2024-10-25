@@ -22,7 +22,8 @@ h1 {
 
 /* Dropdown Styles */
 .dropdown {
-    position: relative;
+    position:
+     relative;
     width: 100%;
     max-width: 350px;
     margin: 0 auto;
@@ -118,7 +119,6 @@ button:focus, a:focus {
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 50px;
-<<<<<<< HEAD
 }
 
 /* Nested Dropdown Styles */
@@ -140,6 +140,4 @@ button:focus, a:focus {
 
 .dropdown-content .dropdown button:hover {
     background-color: #015961;
-=======
->>>>>>> 7979638d14d80c03175f01bfd5c49ea7c436f4a0
 }
