@@ -1,33 +1,23 @@
-<<<<<<< HEAD
 /* General Styles */
-=======
-* General Styles */
->>>>>>> 7979638d14d80c03175f01bfd5c49ea7c436f4a0
 body {
-    font-family: 'Roboto', sans-serif; /* Upgraded font for a modern feel */
+    font-family: 'Roboto', sans-serif; /* Modern font */
     margin: 0;
     padding: 0;
     color: #333;
     height: 100%;
-    scroll-behavior: smooth; /* Enables smooth scroll between sections */
+    scroll-behavior: smooth; /* Smooth scroll */
 }
 
 .header {
-    height: 100vh; /* Full height for better hero section appearance */
+    height: 100vh; /* Full height */
     display: flex;
     justify-content: center;
     align-items: center;
     background: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4xOm8RG1NteSdBqh973gu6/c06540097c16c91b1238dab1d3888a9e/iitg8_2021.jpg?auto=format%2Ccompress&dpr=1&w=1024&h=768&q=30') no-repeat center center/cover;
     color: white;
     text-align: center;
-    z-index: 1;
     position: relative;
-}
-
-.header img {
-    width: 100%;
-    height: auto;
-    opacity: 0.7;
+    z-index: 1;
 }
 
 .header h1 {
@@ -35,61 +25,117 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.5em; /* Increased size for more impact */
-    background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay for better contrast */
+    font-size: 3.5em; /* Larger impact */
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px 40px;
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, background 0.3s ease; /* Smooth animation on hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .header h1:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Grows slightly when hovered */
-    background: rgba(0, 0, 0, 0.8); /* Darkens for emphasis */
+    transform: translate(-50%, -50%) scale(1.05);
+    background: rgba(0, 0, 0, 0.8);
 }
 
-/* Navigation Styles */
-nav {
-    background: #333;
-    text-align: center;
-    padding: 10px 0; /* Padding added for breathing space */
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a modern shadow to the navbar */
-}
-
-nav ul {
+/* Dropdown Menu Styles */
+.menu {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
+    background-color: #333; /* Dark background for menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds depth */
 }
 
-nav ul li {
-    display: inline;
+.menu ol {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centers the menu items */
 }
 
-nav ul li a {
-    color: #fff;
-    padding: 14px 20px;
+.menu-item {
     display: inline-block;
-    text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease; /* Smooth color transitions */
+    position: relative;
 }
 
-nav ul li a:hover {
-    background: #575757;
-    color: #ffd700; /* Adds a gold highlight on hover */
+.menu-item a {
+    color: white;
+    padding: 14px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu-item a:hover {
+    background-color: #575757;
+    color: #ffd700;
+}
+
+/* Dropdown Submenu */
+.menu-item:hover .submenu {
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Below the main menu */
+    left: 0;
+    background-color: #333;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Depth */
+    z-index: 1;
+}
+
+.submenu li {
+    display: block;
+    /*width: 180px;*/
+}
+
+.submenu li a {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: #575757;
+    color: #ffd700;
+}
+
+/* Responsive Dropdown */
+@media (max-width: 768px) {
+    .menu ol {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        display: block;
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        width: 100;
+    }
 }
 
 /* Description Section */
 .description {
-    padding: 40px 20px; /* Increased padding for better spacing */
-    background: #f8f8f8; /* Lighter background */
+    padding: 40px 20px;
+    background: #f8f8f8;
     animation: fadeIn 2s;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Adds a shadow to create a sense of layering */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 20px; /* Reduced margin-top for smoother transition from header */
+    margin-top: 20px;
 }
 
 .description h2 {
@@ -102,9 +148,9 @@ nav ul li a:hover {
 }
 
 .description p, .description ul {
-    margin: 0 15%; /* Increased margin for better content alignment */
+    margin: 0 15%;
     line-height: 1.8;
-    font-size: 1.2em; /* Slightly larger font size for readability */
+    font-size: 1.2em;
 }
 
 .description ul {
@@ -119,11 +165,11 @@ nav ul li a:hover {
 }
 
 .description ul li:hover {
-    transform: translateX(10px); /* Slight shift when hovered */
+    transform: translateX(10px);
     opacity: 0.8;
 }
 
-/* Buttons (optional addition) */
+/* Button Styles */
 .button {
     display: inline-block;
     background-color: #333;
@@ -162,10 +208,7 @@ nav ul li a:hover {
         font-size: 2em;
         padding: 10px 20px;
     }
-    nav ul li {
-        display: block;
-        text-align: center;
-    }
+    
     .description p, .description ul {
         margin: 0 5%;
     }
@@ -176,9 +219,11 @@ nav ul li a:hover {
         font-size: 1.5em;
         padding: 5px 10px;
     }
+    
     .description h2 {
         font-size: 1.8em;
     }
+    
     .description p, .description ul {
         font-size: 1em;
         margin: 0 2%;
