@@ -4,69 +4,90 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    /*background-image: url("C:/Users/yashw/Downloads/file-aKtNw1Dyu2eHo2FkBerZ2gF4 (1).webp");*/
     color: #333;
 }
 
 .container {
     max-width: 900px;
-    margin: 80px auto;
+    margin: 30px auto;
+    /*margin-top: 40px auto;
+    margin-left: 240px;
+    margin-right: 240px;*/
     padding: 20px;
+    font-size: 1.1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 50px;
+
+    /* Add the background image here */
+    background-image: url("C:/Users/yashw/Downloads/file-aKtNw1Dyu2eHo2FkBerZ2gF4 (1).webp");
+    background-size:cover;
+    /* Ensures the image covers the container */
+    background-position: unset;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-size: 36px;
     color: #444;
 }
 
 /* Dropdown Styles */
 .dropdown {
-    position:
-     relative;
+    position: relative;
     width: 100%;
     max-width: 350px;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .dropdown button {
-    background-color: #017E89;
-    color: white;
-    padding: 20px;
-    font-size: 18px;
+    background-color: #FFF36D;
+    color: black;
+    padding: 10px 5px;
+    font-size: 22px;
     font-weight: bold;
     border: none;
     width: 100%;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     border-radius: 12px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease;
 }
 
 .dropdown button:hover {
-    background-color: #016C77;
+    background-color: #02a102;
 }
 
+/* Dropdown content styling */
 .dropdown-content {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
-    background-color: #017E89;
+    background-color: #7ef67e;
     width: 100%;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0);
     border-radius: 10px;
-    margin-top: 8px;
+    margin-top: 5px;
     z-index: 1;
-    overflow: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .dropdown-content a {
-    color: white;
+    color: black;
     padding: 15px;
-    font-size: 16px;
+    font-size: 18px;
+    text-align: center;
     text-decoration: none;
     display: block;
     transition: background-color 0.3s ease;
@@ -74,42 +95,25 @@ h1 {
 }
 
 .dropdown-content a:hover {
-    background-color: #016C77;
+    background-color: #02a102;
+    border-radius: 10px;
 }
 
-.dropdown.show .dropdown-content {
-    display: block;
-    animation: fadeIn 0.4s ease;
-}
-
-.dropdown button::after {
-    content: '\25BC'; /* Down arrow */
-    font-size: 18px;
-}
-
-.dropdown.show button::after {
-    content: '\25B2'; /* Up arrow */
-}
-
-/* Add a fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Hover effect for dropdown */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Modern Touches */
-body, html {
+body,
+html {
     scroll-behavior: smooth;
     transition: background-color 0.3s ease;
 }
 
-button:focus, a:focus {
+button:focus,
+a:focus {
     outline: none;
 }
 
@@ -119,25 +123,4 @@ button:focus, a:focus {
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 50px;
-}
-
-/* Nested Dropdown Styles */
-.dropdown-content .dropdown {
-    position: relative;
-}
-
-.dropdown-content .dropdown-content {
-    top: 0;
-    left: 100%;
-    margin-top: 0;
-    border-radius: 0 10px 10px 0;
-}
-
-.dropdown-content .dropdown button {
-    background-color: #016C77;
-    font-size: 16px;
-}
-
-.dropdown-content .dropdown button:hover {
-    background-color: #015961;
 }

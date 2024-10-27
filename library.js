@@ -1,34 +1,41 @@
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', (event) => {
+// Function to show the dropdown on hover
+function showDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    dropdown.style.display = "block";
+}
 
-    // Function to toggle dropdown visibility
-    function toggleDropdown(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        dropdown.classList.toggle('show');
-    }
+// Function to hide the dropdown when the mouse leaves
+function hideDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    dropdown.style.display = "none";
+}
 
-    // Event listeners for each trimester button
-    document.querySelectorAll('.dropdown button').forEach(button => {
-        button.addEventListener('click', () => {
-            const dropdownId = button.nextElementSibling.id;
-            toggleDropdown(dropdownId);
+// Attach event listeners to each dropdown button
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownButtons = document.querySelectorAll(".dropdown button");
 
-            // Hide other dropdowns
-            document.querySelectorAll('.dropdown-content').forEach(content => {
-                if (content.id !== dropdownId) {
-                    content.classList.remove('show');
-                }
-            });
+    dropdownButtons.forEach(button => {
+        // Get the associated dropdown content ID
+        const dropdownId = button.getAttribute("onclick").replace("toggleDropdown('", "").replace("')", "");
+        
+        // Add mouseenter and mouseleave events
+        button.addEventListener("mouseenter", function() {
+            showDropdown(dropdownId);
+        });
+
+        button.addEventListener("mouseleave", function() {
+            hideDropdown(dropdownId);
+        });
+
+        // Ensure dropdown content hides when the mouse leaves it as well
+        const dropdownContent = document.getElementById(dropdownId);
+        dropdownContent.addEventListener("mouseleave", function() {
+            hideDropdown(dropdownId);
+        });
+
+        // To keep dropdown visible when hovering over content
+        dropdownContent.addEventListener("mouseenter", function() {
+            showDropdown(dropdownId);
         });
     });
-
-    // Click outside to close dropdown
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('.dropdown button')) {
-            document.querySelectorAll('.dropdown-content').forEach(content => {
-                content.classList.remove('show');
-            });
-        }
-    });
 });
-
